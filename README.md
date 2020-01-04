@@ -1,3 +1,3 @@
 # SynText TM ScriptEditor
 
-This is a fork of SynText dsignated for editing TM Scripts
+This is a fork of SynText designated for editing TM Scripts
