@@ -1,2 +1,3 @@
-# TextEditor
-Oh would you look at that, It can read and write files!
+# SynText TM ScriptEditor
+
+This is a fork of SynText dsignated for editing TM Scripts
