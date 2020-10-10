@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using System.IO;
 using System.Linq;
+using FastColoredTextBoxNS;
 
 namespace TextEdit
 {
@@ -14,12 +15,14 @@ namespace TextEdit
         bool mouseDown = false;
         Point lastLocation;
         string filePath;
-        string fileName = "New File";
+        string fileName = "New Script";
         bool fileOpened = false;
         bool isExitSafe = true;
         private const int WM_NCHITTEST = 0x84;
         private const int HTCLIENT = 0x1;
         private const int HTCAPTION = 0x2;
+        Style GreenStyle = new TextStyle(Brushes.Green, null, FontStyle.Italic);
+        Style BlueStyle = new TextStyle(Brushes.Green, null, FontStyle.Italic);
 
         ///
         /// Handling the window messages
@@ -35,8 +38,8 @@ namespace TextEdit
         public form(string newFile) // On form startup
         {
             InitializeComponent();
-            textBox.Font = Properties.Settings.Default.savedFont;
-            textBox.BackColor = Properties.Settings.Default.backColor;
+            Range range = new Range(textBox);
+            range.SetStyle(BlueStyle);
             if (newFile != "") // If app is opened with a text file
             {
                 Debug.WriteLine("File opened on startup");
@@ -54,17 +57,7 @@ namespace TextEdit
                 temp = textBox.Text;
             fileName = Path.GetFileName(filePath);
             }
-            formName.Text = string.Format("SynText | {0}", fileName);
-            RPCHandler.Awaken();
-            RPCHandler.SetPresence(new DiscordRPC.RichPresence()
-            {
-                Details = fileName,
-                Assets = new DiscordRPC.Assets()
-                {
-                    LargeImageKey = "cover",
-                    LargeImageText = "SynText",
-                }
-            });
+            formName.Text = string.Format("TMSE | {0}", fileName);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -287,18 +280,26 @@ namespace TextEdit
             textBox.Text += $"!!TIMESTAMP!!";
         }
 
-        private void textBox_TextChanged(object sender, EventArgs e)
+        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            //set folding markers
+            e.ChangedRange.SetFoldingMarkers("//", "//-");
+
             if (temp != textBox.Text)
                 isExitSafe = false; // Prevents application closing if file has been edited without saving
             else
                 isExitSafe = true;
-            textBox.Text = textBox.Text.Replace("!!TIMESTAMP!!", $"--- {DateTime.Now.ToString()} ---{Environment.NewLine}");
+            textBox.Text = textBox.Text.Replace("//!!TIMESTAMP!!", $"// --- {DateTime.Now.ToString()} ---{Environment.NewLine}");
         }
 
         private void runToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void textBox_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

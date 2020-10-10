@@ -6,7 +6,7 @@
       <Value Profile="(Default)">Arial, 12pt</Value>
     </Setting>
     <Setting Name="backColor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">49, 53, 56</Value>
+      <Value Profile="(Default)">30, 30, 30</Value>
     </Setting>
   </Settings>
 </SettingsFile>
