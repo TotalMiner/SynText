@@ -62,15 +62,16 @@
             // tabBar
             // 
             this.tabBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.tabBar.Controls.Add(this.formName);
+            this.tabBar.Controls.Add(this.menuStrip);
             this.tabBar.Controls.Add(this.pictureBox1);
             this.tabBar.Controls.Add(this.Minimize);
             this.tabBar.Controls.Add(this.toggleFullScreen);
-            this.tabBar.Controls.Add(this.formName);
             this.tabBar.Controls.Add(this.button1);
             this.tabBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.tabBar.Location = new System.Drawing.Point(0, 0);
             this.tabBar.Name = "tabBar";
-            this.tabBar.Size = new System.Drawing.Size(829, 29);
+            this.tabBar.Size = new System.Drawing.Size(1217, 29);
             this.tabBar.TabIndex = 0;
             this.tabBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.window_MouseDown);
             this.tabBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.window_MouseMove);
@@ -96,7 +97,7 @@
             this.Minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Minimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Minimize.ForeColor = System.Drawing.Color.White;
-            this.Minimize.Location = new System.Drawing.Point(720, 0);
+            this.Minimize.Location = new System.Drawing.Point(1108, 0);
             this.Minimize.Name = "Minimize";
             this.Minimize.Size = new System.Drawing.Size(39, 29);
             this.Minimize.TabIndex = 4;
@@ -113,7 +114,7 @@
             this.toggleFullScreen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.toggleFullScreen.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toggleFullScreen.ForeColor = System.Drawing.Color.White;
-            this.toggleFullScreen.Location = new System.Drawing.Point(759, 0);
+            this.toggleFullScreen.Location = new System.Drawing.Point(1147, 0);
             this.toggleFullScreen.Name = "toggleFullScreen";
             this.toggleFullScreen.Size = new System.Drawing.Size(37, 29);
             this.toggleFullScreen.TabIndex = 3;
@@ -124,14 +125,13 @@
             // 
             // formName
             // 
-            this.formName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.formName.AutoSize = true;
             this.formName.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.formName.ForeColor = System.Drawing.Color.White;
-            this.formName.Location = new System.Drawing.Point(46, 7);
+            this.formName.Location = new System.Drawing.Point(52, 9);
             this.formName.Name = "formName";
             this.formName.Size = new System.Drawing.Size(73, 17);
-            this.formName.TabIndex = 2;
+            this.formName.TabIndex = 500;
             this.formName.Text = "Text Editor";
             // 
             // button1
@@ -142,7 +142,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(796, 0);
+            this.button1.Location = new System.Drawing.Point(1184, 0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(33, 29);
             this.button1.TabIndex = 0;
@@ -154,6 +154,7 @@
             // menuStrip
             // 
             this.menuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.menuStrip.Dock = System.Windows.Forms.DockStyle.Fill;
             this.menuStrip.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -162,10 +163,11 @@
             this.settingsToolStripMenuItem,
             this.textToolStripMenuItem,
             this.runToolStripMenuItem});
-            this.menuStrip.Location = new System.Drawing.Point(0, 29);
+            this.menuStrip.Location = new System.Drawing.Point(47, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(2, 2, 0, 2);
-            this.menuStrip.Size = new System.Drawing.Size(829, 24);
+            this.menuStrip.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.menuStrip.Size = new System.Drawing.Size(1061, 29);
             this.menuStrip.TabIndex = 2;
             this.menuStrip.MouseDown += new System.Windows.Forms.MouseEventHandler(this.window_MouseDown);
             this.menuStrip.MouseMove += new System.Windows.Forms.MouseEventHandler(this.window_MouseMove);
@@ -182,7 +184,7 @@
             this.saveAsToolStripMenuItem});
             this.fileMenuStrip.ForeColor = System.Drawing.Color.White;
             this.fileMenuStrip.Name = "fileMenuStrip";
-            this.fileMenuStrip.Size = new System.Drawing.Size(37, 20);
+            this.fileMenuStrip.Size = new System.Drawing.Size(37, 25);
             this.fileMenuStrip.Text = "File";
             // 
             // openFile
@@ -223,7 +225,7 @@
             this.backgroundToolStripMenuItem});
             this.settingsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(62, 25);
             this.settingsToolStripMenuItem.Text = "Settings";
             // 
             // fontToolStripMenuItem
@@ -250,7 +252,8 @@
             this.timeStampToolStripMenuItem});
             this.textToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.textToolStripMenuItem.Name = "textToolStripMenuItem";
-            this.textToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
+            this.textToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textToolStripMenuItem.Size = new System.Drawing.Size(41, 25);
             this.textToolStripMenuItem.Text = "Text";
             // 
             // timeStampToolStripMenuItem
@@ -258,7 +261,7 @@
             this.timeStampToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(59)))), ((int)(((byte)(55)))));
             this.timeStampToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.timeStampToolStripMenuItem.Name = "timeStampToolStripMenuItem";
-            this.timeStampToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.timeStampToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.timeStampToolStripMenuItem.Text = "Time Stamp";
             this.timeStampToolStripMenuItem.ToolTipText = "Inserts timestamp";
             this.timeStampToolStripMenuItem.Click += new System.EventHandler(this.timeStampToolStripMenuItem_Click);
@@ -269,7 +272,7 @@
             this.runToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(208)))), ((int)(((byte)(153)))));
             this.runToolStripMenuItem.Image = global::TextEdit.Properties.Resources.GreenNote;
             this.runToolStripMenuItem.Name = "runToolStripMenuItem";
-            this.runToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
+            this.runToolStripMenuItem.Size = new System.Drawing.Size(60, 25);
             this.runToolStripMenuItem.Text = "Run";
             this.runToolStripMenuItem.Visible = false;
             this.runToolStripMenuItem.Click += new System.EventHandler(this.runToolStripMenuItem_Click);
@@ -297,10 +300,10 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 53);
+            this.panel1.Location = new System.Drawing.Point(0, 29);
             this.panel1.MaximumSize = new System.Drawing.Size(0, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(829, 1);
+            this.panel1.Size = new System.Drawing.Size(1217, 1);
             this.panel1.TabIndex = 3;
             // 
             // colorDialog
@@ -342,14 +345,14 @@
             this.textBox.IsReplaceMode = false;
             this.textBox.LeftBracket = '(';
             this.textBox.LineNumberColor = System.Drawing.Color.LightCyan;
-            this.textBox.Location = new System.Drawing.Point(0, 54);
+            this.textBox.Location = new System.Drawing.Point(0, 30);
             this.textBox.Margin = new System.Windows.Forms.Padding(2);
             this.textBox.Name = "textBox";
             this.textBox.Paddings = new System.Windows.Forms.Padding(1);
             this.textBox.RightBracket = ')';
             this.textBox.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(255)))));
             this.textBox.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("textBox.ServiceColors")));
-            this.textBox.Size = new System.Drawing.Size(829, 509);
+            this.textBox.Size = new System.Drawing.Size(1217, 678);
             this.textBox.TabIndex = 4;
             this.textBox.Text = resources.GetString("textBox.Text");
             this.textBox.Zoom = 100;
@@ -362,11 +365,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(829, 563);
+            this.ClientSize = new System.Drawing.Size(1217, 708);
             this.ControlBox = false;
             this.Controls.Add(this.textBox);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.menuStrip);
             this.Controls.Add(this.tabBar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.ImeMode = System.Windows.Forms.ImeMode.Off;
@@ -381,7 +383,6 @@
             this.menuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textBox)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
