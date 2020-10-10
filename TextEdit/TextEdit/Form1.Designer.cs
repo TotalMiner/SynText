@@ -323,33 +323,29 @@
         '\"',
         '\'',
         '\''};
+            this.textBox.AutoIndent = false;
             this.textBox.AutoIndentCharsPatterns = "\r\n^\\s*[\\w\\.\\(\\)]+\\s*(?<range>=)\\s*(?<range>.+)\r\n";
-            this.textBox.AutoScrollMinSize = new System.Drawing.Size(473, 315);
+            this.textBox.AutoScrollMinSize = new System.Drawing.Size(475, 317);
             this.textBox.BackBrush = null;
             this.textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.textBox.BookmarkColor = System.Drawing.Color.LightSteelBlue;
-            this.textBox.BracketsHighlightStrategy = FastColoredTextBoxNS.BracketsHighlightStrategy.Strategy2;
             this.textBox.CaretColor = System.Drawing.Color.White;
             this.textBox.CharHeight = 21;
             this.textBox.CharWidth = 11;
-            this.textBox.CommentPrefix = "\'";
             this.textBox.CurrentLineColor = System.Drawing.Color.Thistle;
             this.textBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textBox.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.textBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox.FindEndOfFoldingBlockStrategy = FastColoredTextBoxNS.FindEndOfFoldingBlockStrategy.Strategy2;
-            this.textBox.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox.ForeColor = System.Drawing.SystemColors.Info;
-            this.textBox.HighlightingRangeType = FastColoredTextBoxNS.HighlightingRangeType.AllTextRange;
+            this.textBox.Font = new System.Drawing.Font("Courier New", 14.25F);
+            this.textBox.ForeColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox.IndentBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.textBox.IsReplaceMode = false;
-            this.textBox.Language = FastColoredTextBoxNS.Language.VB;
             this.textBox.LeftBracket = '(';
             this.textBox.LineNumberColor = System.Drawing.Color.LightCyan;
             this.textBox.Location = new System.Drawing.Point(0, 54);
             this.textBox.Margin = new System.Windows.Forms.Padding(2);
             this.textBox.Name = "textBox";
-            this.textBox.Paddings = new System.Windows.Forms.Padding(0);
+            this.textBox.Paddings = new System.Windows.Forms.Padding(1);
             this.textBox.RightBracket = ')';
             this.textBox.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(255)))));
             this.textBox.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("textBox.ServiceColors")));
@@ -357,6 +353,7 @@
             this.textBox.TabIndex = 4;
             this.textBox.Text = resources.GetString("textBox.Text");
             this.textBox.Zoom = 100;
+            this.textBox.VisibleRangeChanged += new System.EventHandler(this.textBox_VisibleRangeChanged);
             this.textBox.Load += new System.EventHandler(this.textBox_Load);
             // 
             // form

@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Linq;
 using FastColoredTextBoxNS;
+using System.Text.RegularExpressions;
 
 namespace TextEdit
 {
@@ -21,8 +22,16 @@ namespace TextEdit
         private const int WM_NCHITTEST = 0x84;
         private const int HTCLIENT = 0x1;
         private const int HTCAPTION = 0x2;
-        Style GreenStyle = new TextStyle(Brushes.Green, null, FontStyle.Italic);
-        Style BlueStyle = new TextStyle(Brushes.Green, null, FontStyle.Italic);
+        public readonly Style BlueBoldStyle = new TextStyle(Brushes.LightBlue, null, FontStyle.Bold);
+        public readonly Style BlueStyle = new TextStyle(Brushes.LightBlue, null, FontStyle.Regular);
+        public readonly Style BoldStyle = new TextStyle(null, null, FontStyle.Bold | FontStyle.Underline);
+        public readonly Style GoldStyle = new TextStyle(Brushes.Wheat, null, FontStyle.Regular);
+        public readonly Style GrayStyle = new TextStyle(Brushes.Gray, null, FontStyle.Regular);
+        public readonly Style GreenStyle = new TextStyle(Brushes.LimeGreen, null, FontStyle.Italic);
+        public readonly Style LightGreenStyle = new TextStyle(Brushes.LightGreen, null, FontStyle.Regular);
+        public readonly Style MaroonStyle = new TextStyle(Brushes.Maroon, null, FontStyle.Regular);
+        public readonly Style RedStyle = new TextStyle(Brushes.Red, null, FontStyle.Regular);
+        public readonly Style BlackStyle = new TextStyle(Brushes.Black, null, FontStyle.Regular);
 
         ///
         /// Handling the window messages
@@ -38,8 +47,6 @@ namespace TextEdit
         public form(string newFile) // On form startup
         {
             InitializeComponent();
-            Range range = new Range(textBox);
-            range.SetStyle(BlueStyle);
             if (newFile != "") // If app is opened with a text file
             {
                 Debug.WriteLine("File opened on startup");
@@ -282,9 +289,6 @@ namespace TextEdit
 
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //set folding markers
-            e.ChangedRange.SetFoldingMarkers("//", "//-");
-
             if (temp != textBox.Text)
                 isExitSafe = false; // Prevents application closing if file has been edited without saving
             else
@@ -299,6 +303,22 @@ namespace TextEdit
 
         private void textBox_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void textBox_VisibleRangeChanged(object sender, EventArgs e)
+        {
+
+            var range = textBox.VisibleRange;
+            range.ClearStyle(StyleIndex.All);
+            // priority in order Highest-Lowest
+            textBox.VisibleRange.SetStyle(GreenStyle, @"//.*$", RegexOptions.Multiline);
+            textBox.VisibleRange.SetStyle(BlueStyle, @"if|If|else|Else|then|Then|endif|Endif", RegexOptions.Multiline);
+            textBox.VisibleRange.SetStyle(LightGreenStyle, @"True|true|False|false|enable|disable", RegexOptions.Multiline);
+            textBox.VisibleRange.SetStyle(LightGreenStyle, @"\b\d+[\.]?\d*([eE]\-?\d+)?[lLdDfF]?\b|\b0x[a-fA-F\d]+\b");
+            // All Commands
+            textBox.VisibleRange.SetStyle(GoldStyle, @"Blueprint|CaveIn|CCTV|Clan|Commit|Context|CopyBlock|CopyRegion|Equip|Exit|Explosion|Fog|Hail|Health|History|HUDBar|HUDCounter|HUDShape|HUDText|Inventory|Input|Item|Kick|Loop|Marker|Menu|MessageBox|MobHealth|MobSpawn|MobState|MoveBlock|MoveRegion|Notify|OpenBlock|Particle|ParticleEmitter|Paste|Permission|Pickup|ReplaceRegion|Rain|Script|SetBlock|SetBlockScript|SetEventScript|SetNameplate|SetPower|SetReach|SetRegion|SetSphere|SetSwitch|SetText|SetTexture|Skill|SkillAddXP|SkyColor|Sound|Teleport|TintColor|Unequip|Var|Wait|WayPoint|Zone");
+
 
         }
     }
