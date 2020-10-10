@@ -325,7 +325,7 @@
         '\''};
             this.textBox.AutoIndent = false;
             this.textBox.AutoIndentCharsPatterns = "\r\n^\\s*[\\w\\.\\(\\)]+\\s*(?<range>=)\\s*(?<range>.+)\r\n";
-            this.textBox.AutoScrollMinSize = new System.Drawing.Size(475, 317);
+            this.textBox.AutoScrollMinSize = new System.Drawing.Size(1762, 2837);
             this.textBox.BackBrush = null;
             this.textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.textBox.BookmarkColor = System.Drawing.Color.LightSteelBlue;
@@ -337,7 +337,7 @@
             this.textBox.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.textBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox.Font = new System.Drawing.Font("Courier New", 14.25F);
-            this.textBox.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.textBox.ForeColor = System.Drawing.Color.White;
             this.textBox.IndentBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.textBox.IsReplaceMode = false;
             this.textBox.LeftBracket = '(';

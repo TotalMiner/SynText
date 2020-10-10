@@ -25,6 +25,7 @@ namespace TextEdit
         public readonly Style BlueBoldStyle = new TextStyle(Brushes.DeepSkyBlue, null, FontStyle.Bold);
         public readonly Style BlueStyle = new TextStyle(Brushes.DeepSkyBlue, null, FontStyle.Regular);
         public readonly Style CyanStyle = new TextStyle(Brushes.Cyan, null, FontStyle.Regular);
+        public readonly Style LightCyanStyle = new TextStyle(Brushes.PaleTurquoise, null, FontStyle.Regular);
         public readonly Style LightBlueStyle = new TextStyle(Brushes.LightSkyBlue, null, FontStyle.Regular);
         public readonly Style BoldStyle = new TextStyle(null, null, FontStyle.Bold | FontStyle.Underline);
         public readonly Style GoldStyle = new TextStyle(Brushes.Gold, null, FontStyle.Regular);
@@ -317,13 +318,14 @@ namespace TextEdit
             textBox.VisibleRange.SetStyle(GreenStyle, @"//.*$", RegexOptions.Multiline);
             textBox.VisibleRange.SetStyle(BlueStyle, @"If|Elseif|Else|Endif", RegexOptions.Multiline);
             textBox.VisibleRange.SetStyle(LightBlueStyle, @"Then", RegexOptions.Multiline);
-            textBox.VisibleRange.SetStyle(LightGreenStyle, @"True|true|False|false|enable|disable", RegexOptions.Multiline);
+            textBox.VisibleRange.SetStyle(LightGreenStyle, @"True|true|False|false|enable|disable|toggle", RegexOptions.Multiline);
             textBox.VisibleRange.SetStyle(LightGreenStyle, @"\b\d+[\.]?\d*([eE]\-?\d+)?[lLdDfF]?\b|\b0x[a-fA-F\d]+\b");
-
             // Conditions
             textBox.VisibleRange.SetStyle(CyanStyle, @"CanEquip|HasAction|HasHistory|HasInventory|HasPermission|HasMarker|HasPlayer|HasSkill|HasStatBonus|Intersect|IsAvatar|IsBlockDeliveringPower|IsBlockEdited|IsBlockLightSource|IsBlockOpen|IsBlockOre|IsBlockPassable|IsBlockReceivingPower|IsBlockResistance|IsBlockSolid|IsBlockTexture|IsClan|IsClock|IsCombat|IsDayTime|IsDistance|IsEquipped|IsFiniteResources|IsGamerCount|IsInZone|IsLight|IsLit|IsMobCount|IsNameplate|IsNightTime|IsPowered|IsSkills|IsRandom|IsTime|IsVar|IsBlock");
             // All Commands
             textBox.VisibleRange.SetStyle(GoldStyle, @"Blueprint|CaveIn|CCTV|Clan|Commit|Context|CopyBlock|CopyRegion|Equip|Exit|Explosion|Fog|Hail|Health|History|HUDBar|HUDCounter|HUDShape|HUDText|Inventory|Input|Item|Kick|Loop|Marker|Menu|MessageBox|MobHealth|MobSpawn|MobState|MoveBlock|MoveRegion|Notify|OpenBlock|ParticleEmitter|Particle|Paste|Permission|Pickup|ReplaceRegion|Rain|Script|SetBlock|SetBlockScript|SetEventScript|SetNameplate|SetPower|SetReach|SetRegion|SetSphere|SetSwitch|SetText|SetTexture|SkillAddXP|Skill|SkyColor|Sound|Teleport|TintColor|Unequip|Var|Wait|Waypoint|Zone");
+            // Parameters
+            textBox.VisibleRange.SetStyle(LightCyanStyle, @"player|admin|clan|gamertag|delete|history|syshistory|clanhistory|rel|prel|vrel|crel|hvrel|trel|tvrel|krel|kvrel");
         }
     }
 }

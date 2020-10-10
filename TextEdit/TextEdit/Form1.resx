@@ -156,16 +156,136 @@
 
 // Example
 If 
-Query [True]
+  HasHistory [Example] [player] [true]
 Then
-Example [Hello World!] [255,255,255]
+  Inventory [player] [add] [GreenStone] [25]
 Elseif
-History [System:Help\Cheese] [1]
+  HasAction [Clay] [mined] [&gt;] [1000]
+Then
+  SkillAddXP [Attack] [1000]
+  TintColor [10, 0, 200] [player] [2000]
+Else
+  Exit
 Endif
 
-//Something else
-Script [Test]
-</value>
+Loop
+// End Of Example
+
+// Full Command List:
+
+Blueprint: // Customize an items crafting blueprint.
+CaveIn: // Starts a cave in (earthquake).
+CCTV: // Views the game world from a block position.
+Clan: // Adds or removes the player from a clan.
+Commit: // Forces a graphics refresh.
+Context: // Set the context for some command parameters.
+CopyBlock: // Copies a block from one location to another.
+CopyRegion: // Copies all the blocks from one region to another.
+Equip: // Forces the player to equip an item if they have it in their inventory.
+Exit: // Exit the script immediately.
+Explosion: // Creates an explosion.
+Fog: // Creates a fog weather effect.
+Hail: // Creates a hail weather effect.
+Health: // Manipulate a players current Health points.
+History: // Manipulates historical records.
+HUDBar: // Add/remove custom HUD status bars, driven by history values.
+HUDCounter: // Add/remove custom HUD counters, driven by history values.
+HUDShape: // Add/remove custom shapes to the HUD.
+HUDText: // Add/remove custom text element to the HUD.
+Inventory: // Manipulates block and entity inventories.
+Input: // Prompt the player to enter a number.
+Item: // Customize an items properties.
+Kick: // Kicks a player from the multiplayer session.
+Loop: // Restarts the script from the top.
+Marker: // Manipulates map markers.
+Menu: // Prompt gamer with a multiple choice menu.
+MessageBox: // Prompt gamer with a multiple choice message box.
+MobHealth: // Manipulate mob current Health points.
+MobSpawn: // Spawns a mob.
+MobState: // Set the state of all mobs in a region.
+MoveBlock: // Moves a block from one location to another.
+MoveRegion: // Moves all blocks from one region to another.
+Notify: // Creates a notification message.
+OpenBlock: // Opens the standard interface screen for container blocks.
+Particle: // Emit an individual particle.
+ParticleEmitter: // Creates a particle emitter that emits particles at a specified frequency over a specified length of time.
+Paste: // Pastes a component.
+Permission: // Manipulates player permissions.
+Pickup: // Manipulates item pickups.
+ReplaceRegion: // Replaces all occurrences of a block in a region with another block.
+Rain: // Creates a rain weather effect.
+Script: // Executes another script.
+SetBlock: // Sets the block id at a location.
+SetBlockScript: // Assigns a script to blocks that can execute scripts.
+SetEventScript: // Assigns a script to be executed on certain game events.
+SetNameplate: // Sets player or mob nameplate settings.
+SetPower: // Sets the power state at a location.
+SetReach: // Set's the distance that players can reach (target) blocks.
+SetRegion: // Sets all the block ids in a region.
+SetSphere: // Creates a sphere of blocks.
+SetSwitch: // Manipulates switches and buttons.
+SetText: // Sets the text of blocks that have text properties.
+SetTexture: // Sets the texture for a block that has multiple texture capability. Also used to set decals for blocks that support decals.
+Skill: // Sets a players skill level.
+SkillAddXP: // Add XP to a players skill level.
+SkyColor: // Customize sky color.
+Sound: // Plays a sound.
+Teleport: // Teleports entities.
+TintColor: // Applies a multiplicative tint color to the texture pack.
+Unequip: // Forces the player to unequip items.
+Var: // Declare variables and assign values.
+Wait: // Pauses the script execution for a time.
+Waypoint: // Manipulates player waypoints.
+Zone: // Manipulates zones.
+
+Conditionals:
+
+If: // Starts a conditional If, Then, Elseif, Else, Endif block
+CanEquip: // Queries if the player can use an item.
+HasAction: // Queries if the player has performed an action.
+HasHistory: // Queries historical records.
+HasInventory: // Queries block or entity inventories.
+HasMarker: // Queries map markers.
+HasPermission: // Queries player permissions.
+HasPlayer: // Queries player properties.
+HasSkill: // Queries player skill levels.
+HasStatBonus: // Queries player item stat bonuses.
+Intersect: // Tests for an intersection with players, mobs or both.
+IsAvatar: // Queries what skin the player is currently wearing.
+IsBlock: // Queries the block id at a location.
+IsBlockDeliveringPower: // Queries if a block is delivering power (to adjacent blocks).
+IsBlockEdited: // Queries if the block at a location has been edited.
+IsBlockLightSource: // Queries if the block at a location is a light source (emits light).
+IsBlockOpen: // Queries if the block at a location is being accessed by a player.
+IsBlockOre: // Queries if the block at a location is an ore block.
+IsBlockPassable: // Queries if a player can pass through the block at a location.
+IsBlockReceivingPower: // Queries if a block is receiving power from an adjacent power emitting block. This command has replaced the old IsPowered command.
+IsBlockResistance: // Queries a blocks resistance (hardness) at a location.
+IsBlockSolid: // Queries if the block at a location is a solid block (players cannot see through it or see through parts of it).
+IsBlockTexture: // Queries the block texture id at a location.
+IsClan: // Queries if the player is a member of a clan.
+IsClock: // Queries the current game hour (24 hour clock).
+IsCombat: // Queries if combat is enabled.
+IsDayTime: // Queries whether or not it is currently day time.
+IsDistance: // Queries the distance between the player and a location.
+IsEquipped: // Queries if the player has the item equipped.
+IsFiniteResources: // Queries if Finite Resources is enabled.
+IsGamerCount: // Queries the number of gamers in the session.
+IsInZone: // Queries if the player is in a zone.
+IsLight: // Queries the quantity of light at a location.
+IsLit: // Queries if a location is touched by light, either from itself or an adjacent location.
+IsMobCount: // Queries the number of mobs in an area.
+IsNameplate: // Queries the players nameplate setting.
+IsNightTime: // Queries whether or not it is currently night time.
+IsPowered: // Queries if a block is powered.
+IsSkills: // Queries is the skill system is enabled.
+IsRandom: // Returns a random number.
+IsTime: // Queries the current game or player time.
+IsVar: // Queries the value of a variable.
+Then: // Marks which commands are executed if the queries are true.
+Elseif: // Allows multiple query branches.
+Else: // Marks which commands are executed if the queries are false.
+Endif: // Ends an If, Then, Else, Elseif block.</value>
   </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>60</value>
